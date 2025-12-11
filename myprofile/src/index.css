@@ -1,0 +1,211 @@
+:root {
+  --bg: #fafafa;
+  --text: #111827;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --border: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --text: #e6edf3;
+  --card: #161b22;
+  --muted: #9ba3af;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+/* GLOBALS */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Arial;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+/* WRAPPER */
+.app {
+  width: 100%;
+  max-width: 900px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.8rem;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* THEME TOGGLE */
+.theme-toggle {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+
+  background: var(--card);
+  color: var(--text);
+
+  font-weight: 500;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+
+  transition: all 0.25s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* MAIN GRID */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+}
+
+/* FORM SECTION */
+.form-section {
+  padding: 1.2rem;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  transition: background 0.35s ease;
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 1.1rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.form-section input {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border-radius: 10px;
+
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+
+  margin-top: 0.3rem;
+  font-size: 0.95rem;
+
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Focus ring */
+.form-section input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+  outline: none;
+}
+
+/* PREVIEW SECTION */
+.preview-section {
+  padding: 1.2rem;
+}
+
+.preview-section h2 {
+  margin: 0 0 1rem 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* FADE ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* CARD — Modern Glassmorphism */
+.card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+  cursor: pointer;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Avatar — Modern gradient circle */
+.avatar {
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  font-size: 1.4rem;
+
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+  flex-shrink: 0;
+
+  transition: transform 0.3s ease;
+}
+
+.card:hover .avatar {
+  transform: rotate(4deg) scale(1.08);
+}
+
+/* Text spacing & clarity */
+.card-name {
+  margin: 0 0 0.2rem 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.card-info {
+  margin: 0.15rem 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
